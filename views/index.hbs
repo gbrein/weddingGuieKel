@@ -1,2 +1,38 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<body>
+  <div id="fh5co-wrapper">
+    <div id="fh5co-page">
+
+      <div class="fh5co-hero" data-section="home">
+        <div class="fh5co-overlay" style="height: 100%;"></div>
+        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5"
+          style="background-image: url(images/cover_bg_1.jpg);">
+          <div class="display-t">
+            <div class="display-tc">
+              <div class="container" style="margin-top: -5em;">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="animate-box">
+                    <h1>The Wedding</h1>
+                    <h2>Jack &amp; Rose</h2>
+                    <p><span>28.12.2017</span></p>
+                    <div class="access-form">
+                      <form action="/submit-code" method="POST">
+                        <div class="form-group">
+                          <label class="access-label">Digite o código de acesso:</label>
+                          <div class="row">
+                          <input type="text" class="form-control" id="verificationCode" name="verificationCode" placeholder="Código de Acesso">
+                          </div>
+                        </div>
+                        <input class="btn btn-lg btn-primary" type="submit" value="ok"/>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="dist/scripts.min.js"></script>
+</body>

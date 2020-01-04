@@ -9,7 +9,7 @@ router.get("/", (req, res, next) => {
 
 router.post("/submit-code", (req, res, next) => {
   let { verificationCode } = req.body;
-  verificationCode === "Casamento1309"
+  verificationCode === "guiekel1106"
     ? res.cookie("validWeddingCode", "SKFAAOWR!@", {
         maxAge: 900000,
         httpOnly: true
@@ -27,10 +27,16 @@ router.get("/index", (req, res, next) => {
   }
 });
 
-router.get("/guest", (req, res, next) => {
+router.get("/gifts", (req, res, next) => {
   console.log(req.cookies);
-  res.render("guest");
+  res.render("gifts");
 });
+
+router.get("/rsvp", (req, res, next) => {
+  console.log(req.cookies);
+  res.render("rsvp");
+});
+
 
 router.get("/when-where", (req, res, next) => {
   res.render("when-where");

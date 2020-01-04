@@ -148,8 +148,6 @@ figure {
 .fh5co-cover,
 .fh5co-hero {
   position: relative;
-  height: 800px;
-  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -173,11 +171,27 @@ figure {
 .fh5co-cover {
   background-size: cover;
   position: relative;
+  
 }
 
-@media screen and (max-width: 768px) {
+@media (min-width: 1281px) {
   .fh5co-cover {
-    heifght: inherit;
+    background-size: inherit;
+    object-fit: contain; 
+    background-repeat: no-repeat;
+    background-image: url('/images/save.jpg');
+    background-position: center center; 
+  }
+}
+
+@media (max-width: 1280px) {
+  .fh5co-cover {
+    height: inherit;
+    background-size:  cover;
+    object-fit: fill; 
+    background-repeat: no-repeat;
+    background-image: url('/images/save2.jpg');
+    background-position: center center; 
     padding: 3em 0;
   }
 }
@@ -193,6 +207,10 @@ figure {
 @media screen and (max-width: 768px) {
   .fh5co-cover .display-t {
     height: 600px;
+    background-repeat: no-repeat;
+    background-image: url('/images/save2.jpg');
+    background-position: center center; 
+    padding: 3em 0;
   }
 }
 
@@ -897,7 +915,7 @@ figure {
 }
 
 #footer {
-  background: #F69D9D;
+  background: #5a5a5a;
   padding: 60px 0 40px;
 }
 
@@ -1186,6 +1204,12 @@ figure {
 
 .row-bottom-padded-md {
   padding-bottom: 4em;
+}
+
+.row-bottom-padded-md2 {
+  padding-bottom: 4em;
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 768px) {

@@ -38,14 +38,21 @@ a:hover {
   color: #F69D9D;
 }
 
-p, ul, ol {
+p,
+ul,
+ol {
   margin-bottom: 1.5em;
   font-size: 16px;
   color: #848484;
   font-family: "Open Sans", Arial, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #5a5a5a;
   font-family: "Montez", cursive;
   font-weight: 400;
@@ -126,12 +133,16 @@ figure {
   margin-right: 0;
 }
 
-.header-top .fh5co-social a:hover, .header-top .fh5co-social a:focus, .header-top .fh5co-social a:active {
+.header-top .fh5co-social a:hover,
+.header-top .fh5co-social a:focus,
+.header-top .fh5co-social a:active {
   text-decoration: none;
   color: white !important;
 }
 
-.header-top .fh5co-social a:hover i, .header-top .fh5co-social a:focus i, .header-top .fh5co-social a:active i {
+.header-top .fh5co-social a:hover i,
+.header-top .fh5co-social a:focus i,
+.header-top .fh5co-social a:active i {
   -webkit-transform: scale(1.2);
   -moz-transform: scale(1.2);
   -ms-transform: scale(1.2);
@@ -151,6 +162,7 @@ figure {
 }
 
 @media screen and (max-width: 768px) {
+
   .fh5co-cover,
   .fh5co-hero {
     height: 700px;
@@ -171,27 +183,27 @@ figure {
 .fh5co-cover {
   background-size: cover;
   position: relative;
-  
+
 }
 
 @media (min-width: 1281px) {
   .fh5co-cover {
     background-size: inherit;
-    object-fit: contain; 
+    object-fit: contain;
     background-repeat: no-repeat;
     background-image: url('/images/save.jpg');
-    background-position: center center; 
+    background-position: center center;
   }
 }
 
 @media (max-width: 1280px) {
   .fh5co-cover {
     height: inherit;
-    background-size:  cover;
-    object-fit: fill; 
+    background-size: cover;
+    object-fit: fill;
     background-repeat: no-repeat;
     background-image: url('/images/save2.jpg');
-    background-position: center center; 
+    background-position: center center;
     padding: 3em 0;
   }
 }
@@ -209,7 +221,7 @@ figure {
     height: 600px;
     background-repeat: no-repeat;
     background-image: url('/images/save2.jpg');
-    background-position: center center; 
+    background-position: center center;
     padding: 3em 0;
   }
 }
@@ -282,11 +294,13 @@ figure {
   border-bottom: none !important;
 }
 
-.sf-menu a:hover, .sf-menu a:focus {
+.sf-menu a:hover,
+.sf-menu a:focus {
   color: #F69D9D !important;
 }
 
-.sf-menu li.active a:hover, .sf-menu li.active a:focus {
+.sf-menu li.active a:hover,
+.sf-menu li.active a:focus {
   color: #F69D9D;
 }
 
@@ -340,9 +354,9 @@ figure {
   border-top-color: #ccc;
 }
 
-.sf-arrows > li > .sf-with-ul:focus:after,
-.sf-arrows > li:hover > .sf-with-ul:after,
-.sf-arrows > .sfHover > .sf-with-ul:after {
+.sf-arrows>li>.sf-with-ul:focus:after,
+.sf-arrows>li:hover>.sf-with-ul:after,
+.sf-arrows>.sfHover>.sf-with-ul:after {
   border-top-color: #ccc;
 }
 
@@ -353,9 +367,9 @@ figure {
   border-left-color: #ccc;
 }
 
-.sf-arrows ul li > .sf-with-ul:focus:after,
-.sf-arrows ul li:hover > .sf-with-ul:after,
-.sf-arrows ul .sfHover > .sf-with-ul:after {
+.sf-arrows ul li>.sf-with-ul:focus:after,
+.sf-arrows ul li:hover>.sf-with-ul:after,
+.sf-arrows ul .sfHover>.sf-with-ul:after {
   border-left-color: #ccc;
 }
 
@@ -399,7 +413,8 @@ figure {
   color: #F69D9D;
 }
 
-#fh5co-logo a:hover, #fh5co-logo a:focus {
+#fh5co-logo a:hover,
+#fh5co-logo a:focus {
   color: #F69D9D !important;
 }
 
@@ -415,11 +430,11 @@ figure {
   padding: 1em .75em;
 }
 
-#fh5co-primary-menu > li > ul li.active > a {
+#fh5co-primary-menu>li>ul li.active>a {
   color: #F69D9D !important;
 }
 
-#fh5co-primary-menu > li > .sf-with-ul:after {
+#fh5co-primary-menu>li>.sf-with-ul:after {
   border: none !important;
   font-family: 'icomoon';
   speak: none;
@@ -441,11 +456,11 @@ figure {
   color: rgba(0, 0, 0, 0.5);
 }
 
-#fh5co-primary-menu > li > ul li {
+#fh5co-primary-menu>li>ul li {
   position: relative;
 }
 
-#fh5co-primary-menu > li > ul li > .sf-with-ul:after {
+#fh5co-primary-menu>li>ul li>.sf-with-ul:after {
   border: none !important;
   font-family: 'icomoon';
   speak: none;
@@ -481,7 +496,7 @@ figure {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-#fh5co-primary-menu .fh5co-sub-menu > li > .fh5co-sub-menu {
+#fh5co-primary-menu .fh5co-sub-menu>li>.fh5co-sub-menu {
   left: 100%;
 }
 
@@ -558,6 +573,7 @@ figure {
 }
 
 @media screen and (max-width: 768px) {
+
   #fh5co-couple,
   #fh5co-countdown,
   #fh5co-groom-bride,
@@ -900,16 +916,18 @@ figure {
   }
 }
 
-.fh5co-social-icons > a {
+.fh5co-social-icons>a {
   padding: 4px 10px;
   color: #F69D9D;
 }
 
-.fh5co-social-icons > a i {
+.fh5co-social-icons>a i {
   font-size: 26px;
 }
 
-.fh5co-social-icons > a:hover, .fh5co-social-icons > a:focus, .fh5co-social-icons > a:active {
+.fh5co-social-icons>a:hover,
+.fh5co-social-icons>a:focus,
+.fh5co-social-icons>a:active {
   text-decoration: none;
   color: #5a5a5a;
 }
@@ -928,7 +946,9 @@ figure {
   color: rgba(255, 255, 255, 0.5);
 }
 
-#footer p a:hover, #footer p a:active, #footer p a:focus {
+#footer p a:hover,
+#footer p a:active,
+#footer p a:focus {
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
@@ -952,19 +972,25 @@ figure {
   border: 2px solid transparent !important;
 }
 
-.btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
+.btn.btn-primary:hover,
+.btn.btn-primary:active,
+.btn.btn-primary:focus {
   box-shadow: none;
   background: #F69D9D;
   color: #fff !important;
 }
 
-.btn:hover, .btn:active, .btn:focus {
+.btn:hover,
+.btn:active,
+.btn:focus {
   background: #393e46 !important;
   color: #fff;
   outline: none !important;
 }
 
-.btn.btn-default:hover, .btn.btn-default:focus, .btn.btn-default:active {
+.btn.btn-default:hover,
+.btn.btn-default:focus,
+.btn.btn-default:active {
   border-color: transparent;
 }
 
@@ -1045,12 +1071,12 @@ figure {
   color: #F69D9D;
 }
 
-#offcanvas-menu ul li > .fh5co-sub-menu {
+#offcanvas-menu ul li>.fh5co-sub-menu {
   margin-top: 9px;
   padding-left: 20px;
 }
 
-#offcanvas-menu ul li.active > a {
+#offcanvas-menu ul li.active>a {
   color: #F69D9D;
 }
 
@@ -1063,15 +1089,19 @@ figure {
   text-decoration: none;
 }
 
-.fh5co-nav-toggle.active i::before, .fh5co-nav-toggle.active i::after {
+.fh5co-nav-toggle.active i::before,
+.fh5co-nav-toggle.active i::after {
   background: #fff;
 }
 
-.fh5co-nav-toggle.dark.active i::before, .fh5co-nav-toggle.dark.active i::after {
+.fh5co-nav-toggle.dark.active i::before,
+.fh5co-nav-toggle.dark.active i::after {
   background: #fff;
 }
 
-.fh5co-nav-toggle:hover, .fh5co-nav-toggle:focus, .fh5co-nav-toggle:active {
+.fh5co-nav-toggle:hover,
+.fh5co-nav-toggle:focus,
+.fh5co-nav-toggle:active {
   outline: none;
   border-bottom: none !important;
 }
@@ -1092,7 +1122,8 @@ figure {
   transition: all .2s ease-out;
 }
 
-.fh5co-nav-toggle i::before, .fh5co-nav-toggle i::after {
+.fh5co-nav-toggle i::before,
+.fh5co-nav-toggle i::after {
   content: '';
   width: 30px;
   height: 2px;
@@ -1111,7 +1142,8 @@ figure {
   transition: all .2s ease-out;
 }
 
-.fh5co-nav-toggle.dark i::before, .fh5co-nav-toggle.dark i::after {
+.fh5co-nav-toggle.dark i::before,
+.fh5co-nav-toggle.dark i::after {
   background: #000;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
@@ -1287,17 +1319,81 @@ figure {
   background: url(../images/hourglass.svg) center no-repeat #222222;
 }
 
-.access-form{
-  margin-top:3em;
+.access-form {
+  margin-top: 3em;
 }
 
-.access-label{
-  color:white;
+.access-label {
+  color: white;
+}
+
+.form-control {
+  width: 15em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  display: inline-block;
+}
+
+.row-map {
+  margin-left: 10%;
+}
+
+.row-form {
+  display: flex;
+  justify-content: center;
+}
+
+
+#form-rsvp {
+  align-self: center;
+  width: 82%;
+  border: 3px inset rgba(28, 110, 164, 0.28);
+  border-radius: 8px 15px 15px 15px;
+}
+
+.form-g{
+  display: flex;
+  width: 100%;
+  margin-left: 10px;
+  justify-content: center;
+  margin-bottom: 2px; 
 }
 
 .form-control{
-  width: 15em;
-  margin-top:2em;
-  margin-bottom:2em;
-  display: inline-block;
+  margin-right: 10px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#btn-add {
+  align-items:center;
+  width: 10em;
+  align-self: center;
+  height: 3.2em;
+  margin-right: 2em;
+}
+
+.btn-remove {
+  align-items:center;
+  width: 10em;
+  align-self: center;
+  height: 3.2em;
+  margin-right: 2em;
+}
+
+#btn-submit{
+  justify-content: center;
+}
+
+.form-g-submit{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2px; 
+}
+
+#confirmation {
+  align-self: center;
+  width: 82%;
+  border: 3px inset rgba(28, 110, 164, 0.28);
+  border-radius: 8px 15px 15px 15px;
 }

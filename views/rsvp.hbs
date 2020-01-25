@@ -4,14 +4,14 @@
 
 			<div class="fh5co-hero" data-section="home">
 				<div class="fh5co-overlay"></div>
-				<div class="fh5co-cover text-center" >
+				<div class="fh5co-cover text-center">
 					<div class="display-t">
 						<div class="display-tc">
 							<div class="container">
 								<div class="col-md-10 col-md-offset-1">
 									<div class="animate-box">
 										<h1>Kel & Gui</h1>
-										<h2>Lista de Presentes</h2>
+										<h2>Confirmação de Presença</h2>
 									</div>
 								</div>
 							</div>
@@ -30,7 +30,7 @@
 							<ul class="sf-menu" id="fh5co-primary-menu">
 								<li><a href="/index">Home</a></li>
 								<li><a href="when-where">Onde &amp; Quando</a></li>
-								<li class="active"><a href="gifts">Lista de Presentes</a></li>
+								<li><a href="gifts">Lista de Presentes</a></li>
 								<li class="active"><a href="RSVP">Confirmação de Presença</a></li>
 								<li><a href="gallery">Fotos</a></li>
 
@@ -43,75 +43,22 @@
 			<!-- end:header-top -->
 
 
-			<div id="fh5co-guest">
-				<div class="container">
-					<div class="row animate-box">
-						<div class="col-md-8 col-md-offset-2 text-center heading-section">
-							<h2>The Groomsmen</h2>
+			<div id="fh5co-guest" class="row row-form">
+				<form method="POST" id="form-rsvp">
+					<div id="form-input">
+						<div class="form-group form-g">
+							<input type="text" class="form-control" placeholder="Nome Completo" name="name" required>
+							<input type="text" class="form-control phone-ddd-mask" pattern="[\+()]*(?:\d[\s\-\.()xX]*){10,14}"
+								title="11999994444" placeholder="(11)99994444" required name="phone">
+							<input type="email" class="form-control" placeholder="E-mail" name="email" required>
+							<button class="btn btn-primary btn-remove">Remover</button>
 						</div>
 					</div>
-					<div class="row row-bottom-padded-lg">
-						<div class="col-md-3 text-center animate-box">
-							<div class="groom-men">
-								<img src="images/groom-men-1.jpg" class="img-responsive"
-									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-								<h3>Arthur Stone</h3>
-							</div>
-						</div>
-						<div class="col-md-3 text-center animate-box">
-							<div class="groom-men">
-								<img src="images/groom-men-2.jpg" class="img-responsive"
-									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-								<h3>Mike Paterson</h3>
-							</div>
-						</div>
-						<div class="col-md-3 text-center animate-box">
-							<div class="groom-men">
-								<img src="images/groom-men-3.jpg" class="img-responsive"
-									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-								<h3>Brench Thompson</h3>
-							</div>
-						</div>
-						<div class="col-md-3 text-center animate-box">
-							<div class="groom-men">
-								<img src="images/groom-men-4.jpg" class="img-responsive"
-									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-								<h3>Blake Haste</h3>
-							</div>
-						</div>
+					<div class="form-group form-g-submit">
+						<button class="btn btn-primary" id="btn-add">Adicionar</button>
+						<button type="submit" class="btn btn-primary" id="btn-submit">Enviar</button>
 					</div>
-					
-					<div class="row">
-						<div class="col-md-3 text-center animate-box">
-							<div class="groom-men">
-								<img src="images/bridesmaid-1.jpg" class="img-responsive"
-									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-								<h3>Arthur Stone</h3>
-							</div>
-						</div>
-						<div class="col-md-3 text-center animate-box">
-							<div class="groom-men">
-								<img src="images/bridesmaid-2.jpg" class="img-responsive"
-									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-								<h3>Mike Paterson</h3>
-							</div>
-						</div>
-						<div class="col-md-3 text-center animate-box">
-							<div class="groom-men">
-								<img src="images/bridesmaid-3.jpg" class="img-responsive"
-									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-								<h3>Brench Thompson</h3>
-							</div>
-						</div>
-						<div class="col-md-3 text-center animate-box">
-							<div class="groom-men">
-								<img src="images/bridesmaid-4.jpg" class="img-responsive"
-									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-								<h3>Blake Haste</h3>
-							</div>
-						</div>
-					</div>
-				</div>
+				</form>
 			</div>
 
 
@@ -124,8 +71,7 @@
 	<!-- END fh5co-wrapper -->
 
 	<!-- Google Map -->
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
 	<!-- jQuery -->
-	<script src="dist/scripts.min.js"></script>
+	<script src="dist/scripts.min2.js"></script>
+	<script src="js/add-line-form.js"></script>
 </body>

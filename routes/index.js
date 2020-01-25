@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const cookieParser = require("cookie-parser");
-
+const RsvpModel = require("../model/rsvpmodel");
 // /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
@@ -37,13 +37,46 @@ router.get("/rsvp", (req, res, next) => {
   res.render("rsvp");
 });
 
-
 router.get("/when-where", (req, res, next) => {
   res.render("when-where");
 });
 
 router.get("/gallery", (req, res, next) => {
   res.render("gallery");
+});
+
+router.get("/confirmation", (req, res, next) => {
+  res.render("confirmation");
+});
+
+router.post("/rsvp", (req, res, next) => {
+  let { name, phone, email } = req.body;
+
+  RsvpModel.findOne({ name: name[0] }).then(user => {
+    if (user) {
+      res.redirect("/confirmation");
+    } else {
+      if (typeof name === "string") {
+        new RsvpModel({
+          name: name,
+          phone: phone,
+          email: email
+        })
+          .save()
+          .then(user => res.redirect("/confirmation"));
+      } else {
+        name.forEach((element, idx) => {
+          new RsvpModel({
+            name: name[idx],
+            phone: phone[idx],
+            email: email[idx]
+          })
+          .save().then((result)=> console.log(result))
+        })
+        res.redirect("/confirmation");
+      }
+    }
+  });
 });
 
 module.exports = router;

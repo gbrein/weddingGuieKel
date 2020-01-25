@@ -3,9 +3,10 @@ let removeB = document.getElementsByClassName("btn-remove");
 let form = document.getElementById("form-rsvp");
 
 let input = `<div class="form-group form-g">
-              <input type="text" class="form-control" placeholder="Nome Completo" name="name">
-              <input type="text" class="form-control" placeholder="Telefone com DDD" name="phone">
-              <input type="email" class="form-control" placeholder="E-mail" name="email">
+              <input type="text" class="form-control" placeholder="Nome Completo" name="name" required>
+							<input type="text" class="form-control phone-ddd-mask" pattern="[\+()]*(?:\d[\s\-\.()xX]*){10,14}"
+								title="11999994444" placeholder="(11)99994444" required name="phone">
+							<input type="email" class="form-control" placeholder="E-mail" name="email" required>
               <button class="btn btn-primary btn-remove">Remover</button>
             </div>`;
 

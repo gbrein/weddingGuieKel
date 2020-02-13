@@ -38,6 +38,7 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
+hbs.registerPartials(__dirname + '/views/partials');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

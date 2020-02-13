@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const cookieParser = require("cookie-parser");
 const RsvpModel = require("../model/rsvpmodel");
+const StoreModel = require("../model/storeModel");
 // /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
@@ -27,13 +28,50 @@ router.get("/index", (req, res, next) => {
   }
 });
 
+router.post("/gifts1", (req, res, next) => {
+  let { name, photo, price, quote } = req.body;
+  StoreModel.findOne({ name }).then(gift => {
+    if (gift) {
+      res.redirect("/confirmation");
+    } else {
+      if (typeof name === "string") {
+        new StoreModel({
+          name,
+          photo,
+          price,
+          quote
+        })
+          .save()
+          .then(gift => res.redirect("/confirmation"));
+      } else {
+        name.forEach((element, idx) => {
+          new StoreModel({
+            name,
+            photo,
+            price,
+            quote
+          })
+            .save()
+            .then(result => console.log(result));
+        });
+        res.redirect("/confirmation");
+      }
+    }
+  });
+});
+
 router.get("/gifts", (req, res, next) => {
-  console.log(req.cookies);
-  res.render("gifts");
+  //desenvolver um find all no mongo para trazer todos os gifts // falta testar, é preciso criar registros no mongo
+  StoreModel.find().then(gifts => {
+    console.log(gifts);
+    res.render("gifts", {
+      title: "Gifts",
+      gifts
+    });
+  });
 });
 
 router.get("/rsvp", (req, res, next) => {
-  console.log(req.cookies);
   res.render("rsvp");
 });
 
@@ -71,8 +109,9 @@ router.post("/rsvp", (req, res, next) => {
             phone: phone[idx],
             email: email[idx]
           })
-          .save().then((result)=> console.log(result))
-        })
+            .save()
+            .then(result => console.log(result));
+        });
         res.redirect("/confirmation");
       }
     }

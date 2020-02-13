@@ -1397,3 +1397,17 @@ figure {
   border: 3px inset rgba(28, 110, 164, 0.28);
   border-radius: 8px 15px 15px 15px;
 }
+
+.groom-image {
+  height: 20em;
+  max-width:100%; 
+
+}
+
+#fh5co-guest {
+  background: #efefef;
+}
+
+.row2{
+  margin-top:200px;
+}

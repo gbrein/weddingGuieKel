@@ -1,6 +1,12 @@
-<div class="col-md-3 text-center animate-box">
-  <div class="groom-men ">
-    <img src="{{this.photo}}" class="img-responsive groom-image" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-    <h3>{{this.name}}</h3>
+<div class="card card-custom">
+  <img class="card-img-top" src="{{this.photo}}">
+  <div class="card-body ">
+    <h4 class="card-title">{{this.name}}</h4>
+    <p class="card-text">{{this.description}}testetastag</p>
+    <p class="card-footer"><small class="text-muted"></small>R${{this.price}}</small></p>
+    <form method="POST" action='buy/{{this._id}}'>
+      <input hidden value="{{this._id}}" />
+      <button id="paypal-button">Comprar</button>
+    </form>
   </div>
 </div>

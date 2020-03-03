@@ -6,8 +6,9 @@ const StoreModel = mongoose.model(
   new Schema({
     name: String,
     photo: String,
-    price: String,
+    price: Number,
     quote: Number,
+    description: String,
     updated: { type: Date, default: Date.now() },
   })
 );

@@ -3,6 +3,12 @@ const router = express.Router();
 const cookieParser = require("cookie-parser");
 const RsvpModel = require("../model/rsvpmodel");
 const StoreModel = require("../model/storeModel");
+const mercadopago = require('mercadopago');
+
+mercadopago.configure({
+  access_token: process.env.MELI_TOKEN
+});
+
 // /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
@@ -12,11 +18,10 @@ router.post("/submit-code", (req, res, next) => {
   let { verificationCode } = req.body;
   verificationCode === "guiekel1106"
     ? res.cookie("validWeddingCode", "SKFAAOWR!@", {
-        maxAge: 900000,
-        httpOnly: true
-      })
+      maxAge: 900000,
+      httpOnly: true
+    })
     : false;
-
   res.redirect("index");
 });
 
@@ -49,6 +54,7 @@ router.post("/gifts1", (req, res, next) => {
             name,
             photo,
             price,
+            description,
             quote
           })
             .save()
@@ -61,18 +67,72 @@ router.post("/gifts1", (req, res, next) => {
 });
 
 router.get("/gifts", (req, res, next) => {
-  //desenvolver um find all no mongo para trazer todos os gifts // falta testar, é preciso criar registros no mongo
   StoreModel.find().then(gifts => {
-    console.log(gifts);
     res.render("gifts", {
       title: "Gifts",
-      gifts
+      gifts: gifts,
     });
   });
 });
 
+
+router.post("/buy/:_id", (req, res, next) => {
+  const id = req.params._id;
+  StoreModel.findById({ _id: id }).then(gift => {
+    console.log(gift)
+    if (!gift) {
+      alert('Produto não encontrado!')
+      res.render("gifts")
+    }
+    else {
+      let preference = {
+        back_urls: {
+          "success": `http://localhost:3001/sucess/${id}`,
+          "failure": "http://localhost:3001/failure",
+          "pending": "http://localhost:3001/pending"
+        },
+        items: [
+          {
+            title: gift.name,
+            unit_price: gift.price,
+            quantity: 1,
+          }
+        ]
+      };
+
+      mercadopago.preferences.create(preference)
+        .then(function (response) {
+          console.log(response.response)
+          if (!response.response.sandbox_init_point) {
+            res.redirect("/gifts")
+          } else {
+            res.redirect(response.response.sandbox_init_point)
+          }
+        }).catch(function (error) {
+          console.log(error);
+        });
+    }
+  })
+})
+
+
 router.get("/rsvp", (req, res, next) => {
   res.render("rsvp");
+});
+
+router.get("/sucess/:_id", (req, res, next) => {
+  const id = req.params._id;
+  StoreModel.findById({ _id: id }).remove().then(result => {
+    res.render("sucess");
+  })
+});
+
+router.get("/failure", (req, res, next) => {
+  res.render("failure");
+});
+
+router.get("/pending", (req, res, next) => {
+  res.render("pending");
 });
 
 router.get("/when-where", (req, res, next) => {
@@ -117,5 +177,7 @@ router.post("/rsvp", (req, res, next) => {
     }
   });
 });
+
+router.get("/payment", (req, res, next) => { });
 
 module.exports = router;

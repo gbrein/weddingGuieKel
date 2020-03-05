@@ -386,7 +386,7 @@ figure {
   background: #fff;
 }
 
-#fh5co-gallery{
+#fh5co-gallery {
   padding: 0;
   display: flex;
   position: relative;
@@ -398,7 +398,9 @@ figure {
 
 .nav-header {
   position: relative;
-  float: left;
+  display: flex;
+  justify-content: left;
+  /* float: left; */
   width: 100%;
 }
 
@@ -1024,7 +1026,7 @@ figure {
 #fh5co-wrapper {
   overflow-x: hidden;
   position: relative;
- 
+
 }
 
 .fh5co-offcanvas {
@@ -1505,13 +1507,21 @@ figure {
   justify-content: center;
   left: 4em;
 }
-html,body{
+
+html,
+body {
   width: 100%;
-  height:100%;
+  height: 100%;
 }
 
-@media (min-width: 768px){
-.col-md-8 {
+@media (min-width: 768px) {
+  .col-md-8 {
     flex: 100%;
     max-width: 100%;
+  }
+}
+
+.menu-flex {
+  display: flex;
+  justify-content: left;
 }

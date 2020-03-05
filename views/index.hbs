@@ -1,10 +1,10 @@
-<body>
+
   <div id="fh5co-wrapper">
     <div id="fh5co-page">
 
       <div class="fh5co-hero" data-section="home">
-        <div class="fh5co-overlay" style="height: 100%;"></div>
-        <div class="fh5co-cover text-center" >
+        <div class="fh5co-overlay" ></div>
+        <div class="fh5co-cover  text-center" >
           <div class="display-t">
             <div class="display-tc">
               <div class="container" style="margin-top: -5em;">
@@ -16,9 +16,11 @@
                     <div class="access-form">
                       <form action="/submit-code" method="POST">
                         <div class="form-group">
+                           <div class="form-group row-insta">
                           <label class="access-label">Digite o código de acesso:</label>
-                          <div class="row">
-                          <input type="text" class="form-control" id="verificationCode" name="verificationCode" placeholder="Código de Acesso">
+                           </div>
+                          <div class="row row-insta">
+                          <input type="text" class="form-control form-entrada" id="verificationCode" name="verificationCode" placeholder="Código de Acesso">
                           </div>
                         </div>
                         <input class="btn btn-lg btn-primary" type="submit" value="ok"/>
@@ -34,4 +36,3 @@
     </div>
   </div>
   <script src="dist/scripts.min.js"></script>
-</body>

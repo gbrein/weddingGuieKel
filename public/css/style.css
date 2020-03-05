@@ -82,7 +82,7 @@ figure {
   position: relative;
   display: flex;
   margin-bottom: 0;
-  z-index: 9999999;
+  z-index: 100;
 }
 
 .stuck {
@@ -386,21 +386,19 @@ figure {
   background: #fff;
 }
 
-#fh5co-gallery {
+#fh5co-gallery{
   padding: 0;
   display: flex;
   position: relative;
   left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 10;
   background: #F6FAF7;
 }
 
 .nav-header {
   position: relative;
-  display: flex;
-  justify-content: left;
-  /* float: left; */
+  float: left;
   width: 100%;
 }
 
@@ -436,8 +434,8 @@ figure {
 
 #fh5co-menu-wrap {
   position: relative;
-  z-index: 2;
-  display: block;
+  z-index: 100;
+  display: flex;
   float: right;
   margin-top: 15px;
 }
@@ -607,7 +605,7 @@ figure {
   background: #F6FAF7;
   position: relative;
   display: flex;
-  z-index: 1000;
+  z-index: 10;
 }
 
 .heading-section {
@@ -628,7 +626,7 @@ figure {
 
 #fh5co-couple img {
   position: relative;
-  z-index: 100;
+  z-index: 10;
   margin-bottom: 20px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -1026,7 +1024,7 @@ figure {
 #fh5co-wrapper {
   overflow-x: hidden;
   position: relative;
-
+ 
 }
 
 .fh5co-offcanvas {
@@ -1481,14 +1479,13 @@ figure {
   margin: 0 0 0 0;
 }
 
-
-
 .img-circle {
-  width: 15em;
+  width: 70%;
+  height: auto;
 }
 
 .row-text {
-  width: 100%;
+  /* width: 100%; */
   justify-content: center;
 }
 
@@ -1499,29 +1496,24 @@ figure {
 
 .row-images {
   display: flex;
+
   justify-content: center;
 }
 
 
 .row-images2 {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  left: 4em;
+  /* left: 4em; */
 }
-
-html,
-body {
+html,body{
   width: 100%;
-  height: 100%;
+  height:100%;
 }
 
-@media (min-width: 768px) {
-  .col-md-8 {
+@media (min-width: 768px){
+.col-md-8 {
     flex: 100%;
     max-width: 100%;
-  }
-}
-
-.menu-flex {
-  display: flex;
-  justify-content: left;
 }

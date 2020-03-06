@@ -43,68 +43,44 @@
 
 
 		<div id="fh5co-guest" class="row row-form">
-			<form method="POST" id="form-rsvp">
+			<form method="POST" id="form-rsvp" action="rsvpcreate">
 				<div id="form-input">
 					<div class="form-group form-g">
-						<input type="text" class="form-control" id="input-name" placeholder="Digite Seu Nome" name="name"
-							required />
+						<div class="row-tables1">
+							<input type="text" size="200" class="form-control text-form-large"
+								placeholder="Nomes (Separados por Vírgula)" name="names" required>
+						</div>
 					</div>
-					<div class="row-images">
-						<button class="row-images btn-search btn btn-primary" type="submit">Buscar</button>
+					<div class="form-group form-g">
+						<div class="row">
+							<h3 class="label-type">Tipo de Convite (Individual, Casal, Familiar)</h3>
+						</div>
 					</div>
+					<div class="form-group form-g">
+						<div class="row">
+							<select id="type_of_invitation" name="type_of_invitation" required>
+								<option value="Individual">Individual</option>
+								<option value="Casal">Casal</option>
+								<option value="Familiar">Familiar</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group form-g-submit">
+					<button type="submit" class="btn btn-primary" id="btn-submit">Enviar</button>
 				</div>
 			</form>
-
-
-			<div class="container">
-				{{#if have_register}}
-				<table class="table">
-					<thead>
-						<tr>
-							<th scope="col">
-								<div class="row-tables">
-									Convidados
-								</div>
-							</th>
-							<th scope="col">
-								<div class="row-tables">
-									Tipo de Convite
-								</div>
-							</th>
-							<th scope="col">
-								<div class="row-tables">
-									Confirmar
-								</div>
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						{{#each users}}
-						{{> eachuser}}
-						{{/each}}
-					</tbody>
-				</table>
-				<div class="row row-images">
-					<h1>
-						Qualquer dúvida, entre em contato com os noivos.
-					</h1>
-				</div>
-				{{else}}
-				<h1>
-					Nao há registros para este nome, tente novamente ou entre em contato com os noivos.
-				</h1>
-				{{/if}}
-			</div>
-
 		</div>
 
-
-
-
-
-
 	</div>
-	<!-- END fh5co-page -->
+
+
+
+
+
+
+</div>
+<!-- END fh5co-page -->
 
 </div>
 <!-- END fh5co-wrapper -->

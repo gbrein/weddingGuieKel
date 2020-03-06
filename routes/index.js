@@ -117,7 +117,11 @@ router.post("/buy/:_id", (req, res, next) => {
 
 
 router.get("/rsvp", (req, res, next) => {
-  res.render("rsvp");
+  res.render("rsvp", { have_register: false, });
+});
+
+router.get("/rsvpcreate", (req, res, next) => {
+  res.render("rsvpcreate");
 });
 
 router.get("/sucess/:_id", (req, res, next) => {
@@ -148,35 +152,51 @@ router.get("/confirmation", (req, res, next) => {
 });
 
 router.post("/rsvp", (req, res, next) => {
-  let { name, phone, email } = req.body;
+  let { name } = req.body;
+  const regData = new RegExp(name, "i")
+  RsvpModel.find({ name: { $regex: regData } }).then(users => {
+    if (users.length >= 1) {
+      res.render('rsvp', {
+        users: users,
+        have_register: true,
+      });
+    }
+    else {
+      res.render('rsvp', { have_register: false, });
+    }
+  })
+})
 
-  RsvpModel.findOne({ name: name[0] }).then(user => {
+router.post("/rsvp/:_id", (req, res, next) => {
+  const id = req.params._id;
+  RsvpModel.findByIdAndUpdate({ _id: id }, { confirmation: "true" }).then(result => {
+    res.render("sucessrsvp");
+  })
+});
+
+router.post("/rsvpcreate", (req, res, next) => {
+  let { names, type_of_invitation } = req.body;
+  RsvpModel.findOne({ names: names[0] }).then(user => {
     if (user) {
       res.redirect("/confirmation");
     } else {
-      if (typeof name === "string") {
+      if (typeof names === "string") {
         new RsvpModel({
-          name: name,
-          phone: phone,
-          email: email
+          names: names,
+          type_of_invitation: type_of_invitation,
+          confirmation: "false"
         })
           .save()
-          .then(user => res.redirect("/confirmation"));
-      } else {
-        name.forEach((element, idx) => {
-          new RsvpModel({
-            name: name[idx],
-            phone: phone[idx],
-            email: email[idx]
-          })
-            .save()
-            .then(result => console.log(result));
-        });
-        res.redirect("/confirmation");
+          .then(user => res.redirect("/rsvpcreated"));
       }
+      res.redirect("/rsvpcreated");
     }
-  });
+  }).catch(err => console.log(err))
 });
+
+router.get("/rsvpcreated", (req, res) => {
+  res.render("rsvpcreated")
+})
 
 router.get("/payment", (req, res, next) => { });
 

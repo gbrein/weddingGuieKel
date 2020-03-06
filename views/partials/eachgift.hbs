@@ -5,7 +5,7 @@
     <p class="card-text">{{this.description}}testetastag</p>
     <p class="card-footer"><small class="text-muted"></small>R${{this.price}}</small></p>
     <form method="POST" action='buy/{{this._id}}'>
-      <input hidden value="{{this._id}}" />
+      <input type="hidden" value="{{this._id}}" />
       <button id="paypal-button">Comprar</button>
     </form>
   </div>

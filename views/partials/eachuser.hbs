@@ -1,0 +1,20 @@
+<tr>
+  <th scope="row">
+    <div class="row-tables">
+      {{this.names}}
+    </div>
+  </th>
+  <td>
+    <div class="row-tables">
+      {{this.type_of_invitation}}
+    </div>
+  </td>
+  <td>
+    <div class="row-tables">
+      <form method="POST" action="rsvp/{{this._id}}">
+        <input type="hidden" value="{{this._id}}" />
+        <button type="submit" class="row-images btn-search btn btn-primary">Confirmar</button>
+      </form>
+    </div>
+  </td>
+</tr>

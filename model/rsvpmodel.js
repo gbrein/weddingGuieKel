@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 const RsvpModel = mongoose.model(
   "Rsvp",
   new Schema({
-    name: String,
-    phone: String,
-    email: String,
+    names: String,
+    confirmation: String,
+    type_of_invitation: String,
     updated: { type: Date, default: Date.now() },
   })
 );

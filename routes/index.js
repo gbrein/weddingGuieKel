@@ -152,9 +152,9 @@ router.get("/confirmation", (req, res, next) => {
 });
 
 router.post("/rsvp", (req, res, next) => {
-  let { name } = req.body;
-  const regData = new RegExp(name, "i")
-  RsvpModel.find({ name: { $regex: regData } }).then(users => {
+  let { names } = req.body;
+  const regData = new RegExp(names, "i")
+  RsvpModel.find({ names: { $regex: regData } }).then(users => {
     if (users.length >= 1) {
       res.render('rsvp', {
         users: users,

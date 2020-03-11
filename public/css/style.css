@@ -1442,16 +1442,17 @@ figure {
 }
 
 .card-img-top {
-
   border-radius: 25px;
   width: 100%;
-  margin-top:1em;
-  margin-bottom:1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   height: 14em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .card-custom {
-  width: 18em;
+  width: 20em;
   border-radius: 25px;
   justify-content: center;
   display: flex;
@@ -1554,19 +1555,20 @@ body {
   height: 5em;
 }
 
-.row-cards{
+.row-cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 @media (min-width: 1024px) {
-  .row-image{
+  .row-image {
     max-width: 100%;
     display: flex;
     justify-content: center;
   }
-  .row-card-image{
+
+  .row-card-image {
     display: flex;
     width: 50%;
     justify-content: center;

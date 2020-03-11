@@ -79,9 +79,9 @@ router.post("/buy/:_id", (req, res, next) => {
     else {
       let preference = {
         back_urls: {
-          "success": `http://localhost:3001/sucess/${id}`,
-          "failure": "http://localhost:3001/failure",
-          "pending": "http://localhost:3001/pending"
+          "success": `http://casamentoguiekel/sucess/${id}`,
+          "failure": "http://casamentoguiekel/failure",
+          "pending": "http://casamentoguiekel/pending"
         },
         items: [
           {
@@ -94,11 +94,10 @@ router.post("/buy/:_id", (req, res, next) => {
 
       mercadopago.preferences.create(preference)
         .then(function (response) {
-          console.log(response.response)
-          if (!response.response.sandbox_init_point) {
+          if (!response.response.init_point) {
             res.redirect("/gifts")
           } else {
-            res.redirect(response.response.sandbox_init_point)
+            res.redirect(response.response.init_point)
           }
         }).catch(function (error) {
           console.log(error);

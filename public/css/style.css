@@ -203,7 +203,7 @@ figure {
   .fh5co-cover {
     height: inherit;
     background-size: cover;
-    object-fit: fill;
+    /* object-fit: fill; */
     background-repeat: no-repeat;
     background-image: url('/images/save2.jpg');
     background-position: center center;

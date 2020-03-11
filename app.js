@@ -8,7 +8,6 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
-var cors = require('cors')
 
 mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true })
@@ -51,21 +50,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // default value for title local
 app.locals.title = 'Express ';
 
-var allowedOrigins = ['https://www.casamentoguiekel.com.br',
-  'https://casamentoguiekel.com.br'];
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      var msg = 'The CORS policy for this site does not ' +
-        'allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  }
-}));
-
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "casamentoguiekel.com.br"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();

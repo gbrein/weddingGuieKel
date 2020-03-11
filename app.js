@@ -65,6 +65,12 @@ app.use(cors({
   }
 }));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "casamentoguiekel.com.br"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 const index = require('./routes/index');
 app.use('/', index);
 

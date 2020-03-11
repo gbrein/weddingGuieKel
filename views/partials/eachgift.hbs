@@ -1,12 +1,11 @@
 <div class="card card-custom">
   <img class="card-img-top" src="{{this.photo}}">
   <div class="card-body ">
-    <h4 class="card-title">{{this.name}}</h4>
-    <p class="card-text">{{this.description}}testetastag</p>
-    <p class="card-footer"><small class="text-muted"></small>R${{this.price}}</small></p>
-    <form method="POST" action='buy/{{this._id}}'>
+    <h4 class="card-title row-tables">{{this.name}}</h4>
+    <p class="card-footer row-tables"><small class="text-muted"></small>R${{this.price}}</small></p>
+    <form method="POST" class="row-tables" action='buy/{{this._id}}'>
       <input type="hidden" value="{{this._id}}" />
-      <button id="paypal-button">Comprar</button>
+      <button id="paypal-button" class="btn btn-primary">Comprar</button>
     </form>
   </div>
 </div>

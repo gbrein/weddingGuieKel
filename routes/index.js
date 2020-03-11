@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const RsvpModel = require("../model/rsvpmodel");
 const StoreModel = require("../model/storeModel");
 const mercadopago = require('mercadopago');
+const uploadCloud = require('../config/cloudnary');
 
 mercadopago.configure({
   access_token: process.env.MELI_TOKEN
@@ -33,38 +34,29 @@ router.get("/index", (req, res, next) => {
   }
 });
 
-router.post("/gifts1", (req, res, next) => {
-  let { name, photo, price, quote } = req.body;
-  StoreModel.findOne({ name }).then(gift => {
-    if (gift) {
-      res.redirect("/confirmation");
-    } else {
-      if (typeof name === "string") {
-        new StoreModel({
-          name,
-          photo,
-          price,
-          quote
-        })
-          .save()
-          .then(gift => res.redirect("/confirmation"));
-      } else {
-        name.forEach((element, idx) => {
-          new StoreModel({
-            name,
-            photo,
-            price,
-            description,
-            quote
-          })
-            .save()
-            .then(result => console.log(result));
-        });
-        res.redirect("/confirmation");
-      }
-    }
-  });
-});
+router.get("/giftcreate", (req, res) => {
+  res.render("giftcreate")
+})
+
+router.post("/giftcreate", uploadCloud.single('photo'), (req, res) => {
+  const { title, price } = req.body;
+  console.log(req.file)
+  const photo = req.file.url;
+  const imgName = req.file.originalname;
+  const quote = 1;
+  const newGift = new StoreModel({ name: title, price, quote, photo, imgName })
+  newGift.save()
+    .then(gift => {
+      res.redirect('/giftcreated');
+    })
+    .catch(error => {
+      console.log(error);
+    })
+})
+
+router.get("/giftcreated", (req, res) => {
+  res.render("giftcreated")
+})
 
 router.get("/gifts", (req, res, next) => {
   StoreModel.find().then(gifts => {

@@ -8,7 +8,8 @@ const StoreModel = mongoose.model(
     photo: String,
     price: Number,
     quote: Number,
-    description: String,
+    imgPath: String,
+    imgName: String,
     updated: { type: Date, default: Date.now() },
   })
 );

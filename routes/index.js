@@ -7,7 +7,7 @@ const mercadopago = require('mercadopago');
 const uploadCloud = require('../config/cloudnary');
 var cors = require('cors')
 
-var whitelist = ['https://www.casamentoguiekel.com.br']
+var whitelist = ['https://www.casamentoguiekel.com.br', 'https://casamentoguiekel.com.br']
 
 var corsOptions = {
   origin: function (origin, callback) {

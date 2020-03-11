@@ -79,7 +79,7 @@ router.post("/buy/:_id", (req, res, next) => {
     else {
       let preference = {
         back_urls: {
-          "success": `http://casamentoguiekel.com.br/sucess/${id}`,
+          "success": `http://casamentoguiekel.com.br/sucess/${id}/`,
           "failure": "http://casamentoguiekel.com.br/failure",
           "pending": "http://casamentoguiekel.com.br/pending"
         },

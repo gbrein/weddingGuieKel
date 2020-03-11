@@ -1434,7 +1434,7 @@ figure {
 #fh5co-guest {
   background: #efefef;
   position: relative;
-  z-index: 1000;
+  z-index: 10;
 }
 
 .row2 {

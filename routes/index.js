@@ -59,7 +59,7 @@ router.get("/giftcreated", (req, res) => {
 })
 
 router.get("/gifts", (req, res, next) => {
-  StoreModel.find().then(gifts => {
+  StoreModel.find().sort({price: -1}).then(gifts => {
     res.render("gifts", {
       title: "Gifts",
       gifts: gifts,

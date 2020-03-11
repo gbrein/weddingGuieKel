@@ -194,7 +194,7 @@ figure {
     /* background-size: inherit; */
     object-fit: contain;
     background-repeat: no-repeat;
-    background-image: url('/images/save.jpg');
+    background-image: url('/images/save3.jpg');
     background-position: center center;
   }
 }
@@ -205,7 +205,7 @@ figure {
     background-size: cover;
     /* object-fit: fill; */
     background-repeat: no-repeat;
-    background-image: url('/images/save2.jpg');
+    background-image: url('/images/save4.jpg');
     background-position: center center;
     padding: 3em 0;
   }
@@ -223,7 +223,7 @@ figure {
   .fh5co-cover .display-t {
     height: 600px;
     background-repeat: no-repeat;
-    background-image: url('/images/save2.jpg');
+    background-image: url('/images/save4.jpg');
     background-position: center center;
     padding: 3em 0;
   }

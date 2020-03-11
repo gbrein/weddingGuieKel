@@ -5,6 +5,19 @@ const RsvpModel = require("../model/rsvpmodel");
 const StoreModel = require("../model/storeModel");
 const mercadopago = require('mercadopago');
 const uploadCloud = require('../config/cloudnary');
+var cors = require('cors')
+
+var whitelist = ['https://www.casamentoguiekel.com.br']
+
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
 
 mercadopago.configure({
   access_token: process.env.MELI_TOKEN
@@ -15,7 +28,7 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.post("/submit-code", (req, res, next) => {
+router.post("/submit-code", cors(corsOptions), (req, res, next) => {
   let { verificationCode } = req.body;
   verificationCode === "guiekel1106"
     ? res.cookie("validWeddingCode", "SKFAAOWR!@", {
@@ -26,7 +39,7 @@ router.post("/submit-code", (req, res, next) => {
   res.redirect("index");
 });
 
-router.get("/index", (req, res, next) => {
+router.get("/index", cors(corsOptions), (req, res, next) => {
   if (req.cookies["validWeddingCode"]) {
     res.render("index2");
   } else {
@@ -34,11 +47,11 @@ router.get("/index", (req, res, next) => {
   }
 });
 
-router.get("/giftcreate", (req, res) => {
+router.get("/giftcreate", cors(corsOptions), (req, res) => {
   res.render("giftcreate")
 })
 
-router.post("/giftcreate", uploadCloud.single('photo'), (req, res) => {
+router.post("/giftcreate", cors(corsOptions), uploadCloud.single('photo'), (req, res) => {
   const { title, price } = req.body;
   console.log(req.file)
   const photo = req.file.url;
@@ -54,11 +67,11 @@ router.post("/giftcreate", uploadCloud.single('photo'), (req, res) => {
     })
 })
 
-router.get("/giftcreated", (req, res) => {
+router.get("/giftcreated", cors(corsOptions), (req, res) => {
   res.render("giftcreated")
 })
 
-router.get("/gifts", (req, res, next) => {
+router.get("/gifts", cors(corsOptions), (req, res, next) => {
   StoreModel.find().then(gifts => {
     res.render("gifts", {
       title: "Gifts",
@@ -68,7 +81,7 @@ router.get("/gifts", (req, res, next) => {
 });
 
 
-router.post("/buy/:_id", (req, res, next) => {
+router.post("/buy/:_id", cors(corsOptions), (req, res, next) => {
   const id = req.params._id;
   StoreModel.findById({ _id: id }).then(gift => {
     console.log(gift)
@@ -108,42 +121,42 @@ router.post("/buy/:_id", (req, res, next) => {
 })
 
 
-router.get("/rsvp", (req, res, next) => {
+router.get("/rsvp", cors(corsOptions), (req, res, next) => {
   res.render("rsvp", { have_register: false, });
 });
 
-router.get("/rsvpcreate", (req, res, next) => {
+router.get("/rsvpcreate", cors(corsOptions), (req, res, next) => {
   res.render("rsvpcreate");
 });
 
-router.get("/sucess/:_id", (req, res, next) => {
+router.get("/sucess/:_id", cors(corsOptions), (req, res, next) => {
   const id = req.params._id;
   StoreModel.findById({ _id: id }).remove().then(result => {
     res.render("sucess");
   })
 });
 
-router.get("/failure", (req, res, next) => {
+router.get("/failure", cors(corsOptions), (req, res, next) => {
   res.render("failure");
 });
 
-router.get("/pending", (req, res, next) => {
+router.get("/pending", cors(corsOptions), (req, res, next) => {
   res.render("pending");
 });
 
-router.get("/when-where", (req, res, next) => {
+router.get("/when-where", cors(corsOptions), (req, res, next) => {
   res.render("when-where");
 });
 
-router.get("/gallery", (req, res, next) => {
+router.get("/gallery",cors(corsOptions), (req, res, next) => {
   res.render("gallery");
 });
 
-router.get("/confirmation", (req, res, next) => {
+router.get("/confirmation",cors(corsOptions), (req, res, next) => {
   res.render("confirmation");
 });
 
-router.post("/rsvp", (req, res, next) => {
+router.post("/rsvp",cors(corsOptions), (req, res, next) => {
   let { names } = req.body;
   const regData = new RegExp(names, "i")
   RsvpModel.find({ names: { $regex: regData } }).then(users => {
@@ -159,14 +172,14 @@ router.post("/rsvp", (req, res, next) => {
   })
 })
 
-router.post("/rsvp/:_id", (req, res, next) => {
+router.post("/rsvp/:_id",cors(corsOptions), (req, res, next) => {
   const id = req.params._id;
   RsvpModel.findByIdAndUpdate({ _id: id }, { confirmation: "true" }).then(result => {
     res.render("sucessrsvp");
   })
 });
 
-router.post("/rsvpcreate", (req, res, next) => {
+router.post("/rsvpcreate",cors(corsOptions), (req, res, next) => {
   let { names, type_of_invitation } = req.body;
   RsvpModel.findOne({ names: names[0] }).then(user => {
     if (user) {
@@ -186,10 +199,8 @@ router.post("/rsvpcreate", (req, res, next) => {
   }).catch(err => console.log(err))
 });
 
-router.get("/rsvpcreated", (req, res) => {
+router.get("/rsvpcreated",cors(corsOptions), (req, res) => {
   res.render("rsvpcreated")
 })
-
-router.get("/payment", (req, res, next) => { });
 
 module.exports = router;

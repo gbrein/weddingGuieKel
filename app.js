@@ -8,6 +8,7 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
+const helmet = require('helmet')
 
 mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true })
@@ -24,6 +25,7 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 app.use(helmet())
+
 
 // Middleware Setup
 app.use(logger('dev'));

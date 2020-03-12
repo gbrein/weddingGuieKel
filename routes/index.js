@@ -8,8 +8,7 @@ const mercadopago = require('mercadopago');
 const uploadCloud = require('../config/cloudnary');
 
 mercadopago.configure({
-  client_id: process.env.MELI_CLIENT_ID ,
-  client_secret: process.env.MELI_CLIENT_SECRET
+  access_token: process.env.MELI_TOKEN
 });
 
 // /* GET home page */

@@ -120,7 +120,8 @@ router.get("/rsvpcreate", (req, res, next) => {
 });
 
 router.get("/sucess/:_id", (req, res, next) => {
-  const id = req.params.id;
+  const id = req.params._id;
+  console.log(id)
   StoreModel.findById({ _id: id }).remove().then(result => {
     res.render("sucess");
   })

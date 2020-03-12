@@ -2,12 +2,14 @@ const express = require("express");
 const router = express.Router();
 const cookieParser = require("cookie-parser");
 const RsvpModel = require("../model/rsvpmodel");
+const MsgModel = require("../model/msgmodel");
 const StoreModel = require("../model/storeModel");
 const mercadopago = require('mercadopago');
 const uploadCloud = require('../config/cloudnary');
 
 mercadopago.configure({
-  access_token: process.env.MELI_TOKEN
+  client_id: process.env.MELI_CLIENT_ID ,
+  client_secret: process.env.MELI_CLIENT_SECRET
 });
 
 // /* GET home page */
@@ -85,15 +87,18 @@ router.post("/buy/:_id", (req, res, next) => {
         },
         items: [
           {
+            id: gift._id,
             title: gift.name,
             unit_price: gift.price,
             quantity: 1,
+            currency_id:'BRL'
           }
         ]
       };
 
       mercadopago.preferences.create(preference)
         .then(function (response) {
+          // console.log(response)
           if (!response.response.init_point) {
             res.redirect("/gifts")
           } else {
@@ -116,7 +121,7 @@ router.get("/rsvpcreate", (req, res, next) => {
 });
 
 router.get("/sucess/:_id", (req, res, next) => {
-  const id = req.params._id;
+  const id = req.params.id;
   StoreModel.findById({ _id: id }).remove().then(result => {
     res.render("sucess");
   })
@@ -189,6 +194,17 @@ router.get("/rsvpcreated", (req, res) => {
   res.render("rsvpcreated")
 })
 
-router.get("/payment", (req, res, next) => { });
+router.post("/msgsucess", (req, res, next) => {
+  const { name, message } = req.body;
+
+  const newMsg = new MsgModel({ name: name, message: message })
+  newMsg.save()
+    .then(msg => {
+      res.render("msgsucess")
+    })
+    .catch(error => {
+      console.log(error);
+    })
+ });
 
 module.exports = router;

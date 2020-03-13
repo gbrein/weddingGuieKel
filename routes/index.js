@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const cookieParser = require("cookie-parser");
+
 const RsvpModel = require("../model/rsvpmodel");
 const MsgModel = require("../model/msgmodel");
 const StoreModel = require("../model/storeModel");
@@ -13,18 +13,25 @@ mercadopago.configure({
 
 // /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  (req.cookies.validWeddingCode === "SKFAAOWR!@") ?
+  res.redirect("index") : res.render("index");
+  
 });
 
 router.post("/submit-code", (req, res, next) => {
   let { verificationCode } = req.body;
   verificationCode === "guiekel1106"
-    ? res.cookie("validWeddingCode", "SKFAAOWR!@", {
-      maxAge: 900000,
-      httpOnly: true
-    })
+    ? (
+      res.cookie("validWeddingCode", "SKFAAOWR!@", {
+        maxAge: 900000,
+        httpOnly: true
+      })
+
+    )
     : false;
-  res.redirect("index");
+  (req.cookies.validWeddingCode === "SKFAAOWR!@") ?
+    res.redirect("index") : res.redirect("/")
+
 });
 
 router.get("/index", (req, res, next) => {
@@ -115,11 +122,11 @@ router.get("/rsvp", (req, res, next) => {
   res.render("rsvp", { have_register: false });
 });
 
-router.get("/rsvpcreate",  (req, res, next) => {
-  res.render("rsvpcreate",);
+router.get("/rsvpcreate", (req, res, next) => {
+  res.render("rsvpcreate");
 });
 
-router.get("/sucess/:_id",  (req, res, next) => {
+router.get("/sucess/:_id", (req, res, next) => {
   const id = req.params._id;
   console.log(id)
   StoreModel.findById({ _id: id }).remove().then(result => {

@@ -60,7 +60,7 @@ router.get("/giftcreated", (req, res) => {
 })
 
 router.get("/gifts", (req, res, next) => {
-  StoreModel.find().sort({price: -1}).then(gifts => {
+  StoreModel.find().sort({ price: -1 }).then(gifts => {
     res.render("gifts", {
       title: "Gifts",
       gifts: gifts,
@@ -90,7 +90,7 @@ router.post("/buy/:_id", (req, res, next) => {
             title: gift.name,
             unit_price: gift.price,
             quantity: 1,
-            currency_id:'BRL'
+            currency_id: 'BRL'
           }
         ]
       };
@@ -112,14 +112,14 @@ router.post("/buy/:_id", (req, res, next) => {
 
 
 router.get("/rsvp", (req, res, next) => {
-  res.render("rsvp", { have_register: false, });
+  res.render("rsvp", { have_register: false });
 });
 
-router.get("/rsvpcreate", (req, res, next) => {
-  res.render("rsvpcreate");
+router.get("/rsvpcreate",  (req, res, next) => {
+  res.render("rsvpcreate",);
 });
 
-router.get("/sucess/:_id", (req, res, next) => {
+router.get("/sucess/:_id",  (req, res, next) => {
   const id = req.params._id;
   console.log(id)
   StoreModel.findById({ _id: id }).remove().then(result => {
@@ -205,6 +205,6 @@ router.post("/msgsucess", (req, res, next) => {
     .catch(error => {
       console.log(error);
     })
- });
+});
 
 module.exports = router;

@@ -1561,6 +1561,10 @@ body {
   flex-wrap: wrap;
 }
 
+.btn-send{
+  margin-top: 1em;
+}
+
 @media (min-width: 1024px) {
   .row-image {
     max-width: 100%;

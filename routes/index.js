@@ -14,8 +14,8 @@ mercadopago.configure({
 // /* GET home page */
 router.get("/", (req, res, next) => {
   (req.cookies.validWeddingCode === "SKFAAOWR!@") ?
-  res.redirect("index") : res.render("index");
-  
+    res.redirect("index") : res.render("index");
+
 });
 
 router.post("/submit-code", (req, res, next) => {
@@ -199,6 +199,10 @@ router.post("/rsvpcreate", (req, res, next) => {
 
 router.get("/rsvpcreated", (req, res) => {
   res.render("rsvpcreated")
+})
+
+router.get("/hoteis", (req, res) => {
+  res.render("hoteis")
 })
 
 router.post("/msgsucess", (req, res, next) => {

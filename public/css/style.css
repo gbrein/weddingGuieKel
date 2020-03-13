@@ -1354,7 +1354,6 @@ figure {
 
 .access-label {
   color: white;
-  margin-bottom: 1em;
 }
 
 .form-control {
@@ -1564,6 +1563,10 @@ body {
 
 .btn-send{
   margin-top: 1em;
+}
+
+#verificationCode{
+  margin-bottom: 1em;
 }
 
 @media (min-width: 1024px) {

@@ -63,5 +63,13 @@ app.use(function (req, res, next) {
 const index = require('./routes/index');
 app.use('/', index);
 
+hbs.registerHelper('isdefined', function (value) {
+  if (value !== 'false') {
+    return true;
+  }
+  else {
+    return false
+  }
+});
 
 module.exports = app;

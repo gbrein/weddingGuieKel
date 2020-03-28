@@ -4,7 +4,7 @@
 - Mongodb. 
 - NodeJs
 
-**Secret Routes **
+**Secret Routes**
 - /creatersvp - Add RSVP at DB
 - /giftcreate - Add gift at DB
 

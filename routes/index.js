@@ -20,7 +20,7 @@ router.get("/", (req, res, next) => {
 
 router.post("/submit-code", (req, res, next) => {
   let { verificationCode } = req.body;
-  verificationCode === "guiekel1106"
+  verificationCode === process.env.code
     ? (
       res.cookie("validWeddingCode", "SKFAAOWR!@", {
         maxAge: 900000,

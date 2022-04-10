@@ -5747,7 +5747,7 @@ function (e) {
           offset: 0
         })
       },
-      countDownDate = new Date("Dec 28, 2017 15:37:25").getTime(),
+      countDownDate = new Date("Jun 16, 2022 14:00:00").getTime(),
       x = setInterval(function () {
         var now = (new Date).getTime(),
           distance = countDownDate - now,

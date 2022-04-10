@@ -1583,4 +1583,9 @@ body {
     width: 50%;
     justify-content: center;
   }
+  .row-card-image-2 {
+    display: flex;
+    width: 50;
+    justify-content: center;
+  }
 }
